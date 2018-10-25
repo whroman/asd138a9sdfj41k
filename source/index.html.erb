@@ -1,0 +1,74 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Lebbab Review Manager</title>
+    <%= stylesheet_link_tag "index" %>
+    <%= stylesheet_link_tag "header" %>
+    <%= stylesheet_link_tag "content" %>
+  </head>
+  <body>
+    <div class="page">
+      <div class="header">
+        <div class="header--title">Sistema de repaso</div>
+        <div class="header--link">
+          <a href="#">¿Cómo funciona el sistema de repaso?</a>
+        </div>
+      </div>
+      <div class="content">
+        <table class="learned-items">
+          <thead>
+            <tr>
+              <th></th>
+              <th>ESPAÑOL</th>
+              <th>ITALIANO</th>
+              <th></th>
+              <th class="text-center">VECES REPASADAS</th>
+              <th class="text-center">ÚLTIMO REPASO</th>
+              <th class="text-center">NIVEL DE CONOCIMIENTO</th>
+              <th></th>
+            </tr>
+          </thead>
+          <tbody>
+            <% data.learned_items.each do |learned_item| %>
+              <tr class="learned-item">
+                <td>
+                  <img class="learned-item--image" src="<%= learned_item.image_url %>">
+                </td>
+                <td>
+                  <%= learned_item.L1 %>
+                </td>
+                <td>
+                  <%= learned_item.L2 %>
+                </td>
+                <td>
+                  <img src="images/sound.svg">
+                </td>
+                <td class="learned-item--amount-repeated">
+                 <%= learned_item.amount_of_times_taken %>
+                </td>
+                <td class="learned-item--date">
+                  <%= learned_item.date_last_taken %>
+                </td>
+                <td class="learned-item--knowledge-level">
+                  <ul>
+                    <% (1..6).each do |level| %>
+                      <li class="<%= 'is-active' if learned_item.knowledge_level == level %>" >
+                        <a href="#"></a>
+                      </li>
+                    <% end %>
+                  </ul>
+                </td>
+                <td>
+                  <a href="#" class="learned-items-list__delete">
+                    <img src="images/trashcan.svg">
+                  </a>
+                </td>
+              </tr>
+            <% end %>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </body>
+</html>
