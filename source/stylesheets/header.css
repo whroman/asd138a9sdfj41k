@@ -2,20 +2,3 @@
   display: flex;
   justify-content: space-between;
 }
-
-.header--title {
-  font-size: 40px;
-  color: #284b7c;
-  font-family: serif;
-  font-weight: 800;
-}
-
-.header--link {
-  margin-top: 20px;
-}
-
-.header--link a {
-  color: #394149;
-  font-weight: 800;
-  text-decoration: underline;
-}
